@@ -2,20 +2,12 @@ package br.com.apidenuncia.apidenuncia.DTOs.denuncia;
 
 public class ConsultaDenunciaDTO {
 
-    private String denuncia;
     private String titulo;
+    private String descricao;
 
-    public ConsultaDenunciaDTO(String denuncia, String titulo) {
-        this.denuncia = denuncia;
+    public ConsultaDenunciaDTO(String titulo, String descricao) {
         this.titulo = titulo;
-    }
-
-    public String getDenuncia() {
-        return denuncia;
-    }
-
-    public void setDenuncia(String denuncia) {
-        this.denuncia = denuncia;
+        this.descricao = descricao;
     }
 
     public String getTitulo() {
@@ -24,5 +16,13 @@ public class ConsultaDenunciaDTO {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

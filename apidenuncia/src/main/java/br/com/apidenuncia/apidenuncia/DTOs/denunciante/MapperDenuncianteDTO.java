@@ -11,6 +11,6 @@ public class MapperDenuncianteDTO {
     }
 
     public static ConsultaDenuncianteDTO fromDomain(Denunciante denunciante){
-        return new ConsultaDenuncianteDTO(denunciante.getCpf(), denunciante.getNome());
+        return new ConsultaDenuncianteDTO(denunciante.getNome(), denunciante.getCpf());
     }
 }

@@ -1,23 +1,34 @@
 package br.com.apidenuncia.apidenuncia.domain;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Entity
 public class Data implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @OneToOne
     private Denunciante denunciantes;
+    @OneToOne
     private Endereco endereco;
+    @OneToOne
     private Denuncia denuncia;
+    @Column(length = 255)
     private BigDecimal latitude;
+    @Column(length = 255)
     private BigDecimal longitude;
 
     public Data() {
     }
 
-    public Data(Denunciante denunciantes,
+    public Data(Denunciante denunciantes, Endereco endereco,
                 Denuncia denuncia, BigDecimal latitude, BigDecimal longitude) {
         this.denunciantes = denunciantes;
+        this.endereco = endereco;
         this.denuncia = denuncia;
         this.latitude = latitude;
         this.longitude = longitude;

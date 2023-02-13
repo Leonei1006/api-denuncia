@@ -4,14 +4,15 @@ import br.com.apidenuncia.apidenuncia.DTOs.denuncia.RegistroDenunciaDTO;
 import br.com.apidenuncia.apidenuncia.DTOs.denunciante.RegistroDenuncianteDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
 public class RegistroDataDTO {
 
-    @NotBlank(message = "O campo latitude deve ser preenchido.")
+    @NotNull(message = "O campo latitude deve ser preenchido.")
     private BigDecimal latitude;
-    @NotBlank(message = "O campo longitude deve ser preenchido.")
+    @NotNull(message = "O campo longitude deve ser preenchido.")
     private BigDecimal longitude;
 
     @Valid

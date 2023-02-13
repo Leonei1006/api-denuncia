@@ -1,17 +1,46 @@
 package br.com.apidenuncia.apidenuncia.domain;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
+@Entity
 public class Endereco implements Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(length = 255)
     private String lagradouro;
+    @Column(length = 255)
     private String bairro;
+    @Column(length = 255)
     private String cidade;
+    @Column(length = 255)
     private String estado;
+    @Column(length = 255)
     private String pais;
+    @Column(length = 9)
     private String cep;
+
+    public Endereco() {}
+
+    public Endereco(String lagradouro, String bairro, String cidade, String estado, String pais, String cep) {
+        this.lagradouro = lagradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.pais = pais;
+        this.cep = cep;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getLagradouro() {
         return lagradouro;

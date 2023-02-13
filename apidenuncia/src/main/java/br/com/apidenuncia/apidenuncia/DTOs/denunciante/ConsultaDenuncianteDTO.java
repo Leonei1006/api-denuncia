@@ -5,19 +5,11 @@ import java.io.Serializable;
 
 public class ConsultaDenuncianteDTO implements Serializable {
 
-    private String cpf;
     private String nome;
+    private String cpf;
 
-    public ConsultaDenuncianteDTO(String cpf, String nome) {
-        this.cpf = cpf;
+    public ConsultaDenuncianteDTO(String nome, String cpf) {
         this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -27,5 +19,13 @@ public class ConsultaDenuncianteDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
