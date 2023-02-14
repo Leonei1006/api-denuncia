@@ -1,6 +1,7 @@
 package br.com.apidenuncia.apidenuncia.service;
 
 import br.com.apidenuncia.apidenuncia.domain.Data;
+import br.com.apidenuncia.apidenuncia.exceptions.ResourceNotFoundException;
 import br.com.apidenuncia.apidenuncia.repository.DataRepository;
 import br.com.apidenuncia.apidenuncia.repository.DenunciaRepository;
 import br.com.apidenuncia.apidenuncia.repository.DenuncianteRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DataService {
@@ -30,7 +32,8 @@ public class DataService {
     }
 
     public Data getData(Long id){
-        return dataRepository.findById(id).get();
+       Optional<Data> data = dataRepository.findById(id);
+       return data.orElseThrow(() -> new ResourceNotFoundException("Denuncia não encontrada!"));
     }
 
     public List<Data> getDataAll(){

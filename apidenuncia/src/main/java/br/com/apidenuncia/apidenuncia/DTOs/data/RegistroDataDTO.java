@@ -3,6 +3,8 @@ package br.com.apidenuncia.apidenuncia.DTOs.data;
 import br.com.apidenuncia.apidenuncia.DTOs.denuncia.RegistroDenunciaDTO;
 import br.com.apidenuncia.apidenuncia.DTOs.denunciante.RegistroDenuncianteDTO;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -10,11 +12,15 @@ import java.math.BigDecimal;
 
 public class RegistroDataDTO {
 
-    @NotNull(message = "O campo latitude deve ser preenchido.")
+    @NotNull(message = "O campo latitude deve ser preenchido!")
+    @Min(value = -90, message = "Latitude inválida!")
+    @Max(value = 90, message = "Latitude inválida!")
     private BigDecimal latitude;
-    @NotNull(message = "O campo longitude deve ser preenchido.")
-    private BigDecimal longitude;
 
+    @Min(value = -180, message = "Longitude inválida!")
+    @Max(value = 180, message = "Longitude inválida!")
+    @NotNull(message = "O campo longitude deve ser preenchido!")
+    private BigDecimal longitude;
     @Valid
     private RegistroDenuncianteDTO denunciante;
     @Valid
